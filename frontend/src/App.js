@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import OperatorPage from './operator_page';
 import io from 'socket.io-client';
 import './App.css';
 
@@ -20,7 +21,7 @@ function App() {
 
   return (
     <div className="app">
-      <p>Write your code here!</p>
+      <OperatorPage/>
     </div>
   );
 }
