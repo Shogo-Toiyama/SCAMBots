@@ -3,8 +3,11 @@ import RealtimeInfoField from './components/realtime_info_field';
 import picture from './picture1.PNG';
 import io from 'socket.io-client';
 import './App.css';
+import SnapshotInfoField from "./components/snapshot_info_field";
+import ApiCallField from "./components/api_call_field";
+import CommunicationField from "./components/communication_field";
 
-const socket = io('http://localhost:8000');
+const socket = io(`http://localhost:8000`);
 
 function App() {
   const [snapshotUrl, setSnapshotUrl] = useState(null);
@@ -48,7 +51,8 @@ function App() {
         <h1>SCAMBots Operator Page</h1>
           <div>
             <h2>Real Time Info Field</h2>
-            <RealtimeInfoField temp={temp} humidity={humidity} lightlevel={lightLevel} distance={distance} />
+
+            <RealtimeInfoField/>
           </div>
           <div>
             <h2>Snapshot Info Field</h2>
@@ -75,13 +79,11 @@ function App() {
           </div>
           <div>
             <h2>API Call Field</h2>
-            <p>Distance snapshots here.</p>
-            <p>Fields name will be changed after.</p>
+            <ApiCallField/>
           </div>
           <div>
             <h2>Communication Field</h2>
-            <p>Distance snapshots here.</p>
-            <p>Fields name will be changed after.</p>
+            <CommunicationField/>
           </div>
       </div>
     </div>
