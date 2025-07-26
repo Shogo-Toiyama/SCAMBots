@@ -1,22 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+
 import socket from '../socket';
 
 function CommunicationField({}) {
+
+  const [message, setMessage] = useState('');
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Message:", message);
+  };
+
   return (
     <div className="communication-fields">
       <div>
-        <button onClick = {sendMessage("forward")}>forward</button>
-        <button onClick = {sendMessage("backward")}>backward</button>
-        <button onClick = {sendMessage("right")}>right</button>
-        <button onClick = {sendMessage("left")}>left</button>
+        <form onSubmit = {handleSubmit}>
+          <label>
+            Message:
+            <input
+              type = "text"
+              value = {message}
+              onChange={(e) => setMessage(e.target.value)}
+            />
+          </label>
+          <button type = "submit">Submit</button>
+        </form>
       </div>
     </div>
     );
-}
-
-function sendMessage(direction) {
-  socket.emit('command', direction);
-  console.log(`Sending command: ${direction}`);
 }
 
 export default CommunicationField

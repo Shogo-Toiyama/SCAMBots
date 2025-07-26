@@ -4,7 +4,8 @@ function ApiCallField({}) {
   return (
     <div className="api-call-fields">
       <div>
-        <p>API Response: Hello! I'm ChatGPT!</p>
+        <button>Analyse Image</button>
+        <p>Supercomputer: Hello! I'm ChatGPT!</p>
         <button onClick = {playAudio}>Play Audio</button>
       </div>
     </div>
