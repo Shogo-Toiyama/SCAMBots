@@ -1,13 +1,10 @@
 import requests
 import os
 
-# Directorio donde está este script (backend)
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
-# Subimos un nivel y luego entramos a AI (fuera de backend)
 ai_dir = os.path.abspath(os.path.join(script_dir, '..', 'AI'))
 
-# Aseguramos que la carpeta AI exista (opcional)
 os.makedirs(ai_dir, exist_ok=True)
 
 filename = os.path.join(ai_dir, "downloaded_image.jpg")

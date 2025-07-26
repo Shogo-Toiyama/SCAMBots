@@ -11,7 +11,6 @@ const APP = express();
 const server = http.createServer(APP);
 const { Server } = require("socket.io");
 
-// ✅ Servimos la carpeta AI (fuera de backend)
 APP.use('/images', express.static(path.join(__dirname, '..', 'frontend')));
 
 const io = new Server(server, {
@@ -44,7 +43,6 @@ let latestLight = null;
 io.on("connection", (socket) => {
   console.log("Frontend connected to socket");
 
-  // Enviar valores iniciales si existen
   if (latestTemp) socket.emit('temp', latestTemp);
   if (latestUltrasonic) socket.emit('ultrasonic', latestUltrasonic);
   if (latestLight) socket.emit('light', latestLight);
@@ -54,7 +52,6 @@ io.on("connection", (socket) => {
     client.publish("display", message.toString());
   });
 
-  // ✅ Lógica del botón: ejecutar receive.py con argumento "update"
   socket.on('take_picture', () => {
     console.log('📸 Taking picture...');
 
@@ -90,13 +87,12 @@ io.on("connection", (socket) => {
   });
 });
 
-// Intervalo para enviar datos de sensores
 setInterval(() => {
   io.emit('temp', latestTemp);
   io.emit('ultrasonic', latestUltrasonic);
   io.emit('humidity', latestHumidity);
   io.emit('light', latestLight);
-}, 1000);
+}, 500);
 
 server.listen(8000, () => {
   console.log('Server is running on port 8000');
