@@ -1,13 +1,19 @@
 import requests
 import os
 
-# Get the folder where the script is located
+# Directorio donde está este script (backend)
 script_dir = os.path.dirname(os.path.abspath(__file__))
-filename = os.path.join(script_dir, "downloaded_image.jpg")
 
-# Function to download the image
+# Subimos un nivel y luego entramos a AI (fuera de backend)
+ai_dir = os.path.abspath(os.path.join(script_dir, '..', 'AI'))
+
+# Aseguramos que la carpeta AI exista (opcional)
+os.makedirs(ai_dir, exist_ok=True)
+
+filename = os.path.join(ai_dir, "downloaded_image.jpg")
+
 def download_image():
-    url = "http://172.20.10.3/1280x1024.jpg"
+    url = "http://192.168.50.180/1280x1024.jpg"
     response = requests.get(url)
 
     if response.status_code == 200:
@@ -17,7 +23,6 @@ def download_image():
     else:
         print("Failed to download image. Status code:", response.status_code)
 
-# Main loop with input options
 while True:
     user_input = input("Enter 'update' to download a new photo or 'quit' to exit: ").strip().lower()
 
