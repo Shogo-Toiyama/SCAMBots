@@ -6,7 +6,7 @@ from secrets import API_KEY
 client = OpenAI(api_key=API_KEY)
 frontend_dir = Path(__file__).parent.parent / "frontend"
 image_path = frontend_dir / "downloaded_image.jpg"
-speech_file_path = frontend_dir / "speech.mp3"
+speech_file_path = frontend_dir / "public" / "speech.mp3"
 text_file_path = frontend_dir / "public" / "openai_response_text.txt"
 
 # Image encoding, code provided
