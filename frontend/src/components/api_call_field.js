@@ -1,11 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import socket from '../socket'
+
+const sendPicture = () => {
+  socket.emit("analyze_picture")
+}
+
+
 
 function ApiCallField({}) {
+
+  const [extraText, setExtraText] = useState('');
+
+  useEffect(() => {
+    fetch('/openai_response_text.txt')
+  
+      .then((res) => res.text())
+      .then((text) => setExtraText(text))
+      .catch((err) => console.error('Error loading text file:', err));
+  }, []);
+
   return (
     <div className="api-call-fields">
       <div>
-        <button>Analyse Image</button>
-        <p>Supercomputer: Hello! I'm ChatGPT!</p>
+        <button onClick = {sendPicture}>Analyze Image</button>
+        <p>Headquarters:</p>
+        <p> {extraText}</p>
         <button onClick = {playAudio}>Play Audio</button>
       </div>
     </div>
@@ -13,7 +32,7 @@ function ApiCallField({}) {
 }
 
 function playAudio() {
-  const audio = new Audio('path/to/audio/file.mp3');
+  const audio = new Audio('/speech.mp3');
   audio.play().catch(error => {
     console.error('Error playing audio:', error);
   });

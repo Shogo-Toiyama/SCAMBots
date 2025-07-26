@@ -45,6 +45,10 @@ function App() {
     socket.emit("take_picture");
   };
 
+  const sendPicture = () => {
+    socket.emit("analyze_picture")
+  }
+
   return (
     <div className="app">
       <div className="operator-page">
