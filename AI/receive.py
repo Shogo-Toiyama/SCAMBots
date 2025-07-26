@@ -4,6 +4,7 @@ import sys
 
 # Directorio donde está el backend
 script_dir = os.path.dirname(os.path.abspath(__file__))
+filename = os.path.join(script_dir, "../frontend/src/downloaded_image.jpg") 
 
 # Subimos un nivel y luego entramos a frontend
 frontend_dir = os.path.abspath(os.path.join(script_dir, '..', 'frontend'))
