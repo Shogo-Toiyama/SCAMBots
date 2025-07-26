@@ -9,6 +9,7 @@ function CommunicationField({}) {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Message:", message);
+    socket.emit("display", message);
   };
 
   return (

@@ -4,8 +4,10 @@ from openai import OpenAI
 from secrets import API_KEY
 
 client = OpenAI(api_key=API_KEY)
-image_path = Path(__file__).parent.parent / "frontend" / "src" / "downloaded_image.jpg"
-speech_file_path = Path(__file__).parent / "speech.mp3"
+frontend_dir = Path(__file__).parent.parent / "frontend"
+image_path = frontend_dir / "downloaded_image.jpg"
+speech_file_path = frontend_dir / "speech.mp3"
+text_file_path = frontend_dir / "public" / "openai_response_text.txt"
 
 # Image encoding, code provided
 def encode_image(image_path):
@@ -31,6 +33,10 @@ response = client.responses.create(
 )
 
 print("Response from supercomputer:\n", response.output_text)
+
+with open(text_file_path, "w", encoding="utf-8") as f:
+    f.write(response.output_text)
+print(f"Generated text saved to: {text_file_path}")
 
 with client.audio.speech.with_streaming_response.create(
     model="gpt-4o-mini-tts",
