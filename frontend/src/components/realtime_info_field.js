@@ -8,7 +8,7 @@ class Sensor {
   }
 }
 
-function MakeRealtimeInfoField({ temp, humidity, light_level, distance }) {
+function RealtimeInfoField({ temp, humidity, lightlevel, distance }) {
   const sensors = [
     new Sensor("Temperature", "F", 1),
     new Sensor("Humidity", "%", 2),
@@ -25,7 +25,7 @@ function MakeRealtimeInfoField({ temp, humidity, light_level, distance }) {
           value={
             sensor.name === "Temperature" ? `${temp ? temp : '--'} ${sensor.unit}` :
             sensor.name === "Humidity" ? `${humidity ? humidity : '--'} ${sensor.unit}` :
-            sensor.name === "Light Level" ? `${light_level ? light_level : '--'} ${sensor.unit}` :
+            sensor.name === "Light Level" ? `${lightlevel ? lightlevel : '--'} ${sensor.unit}` :
             sensor.name === "Distance" ? `${distance ? distance : '--'} ${sensor.unit}` :
             "N/A"
           }
@@ -44,4 +44,4 @@ function GetRealtimeInfo({ label, value }) {
   );
 }
 
-export default MakeRealtimeInfoField;
+export default RealtimeInfoField;
