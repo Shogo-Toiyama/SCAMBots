@@ -5,17 +5,13 @@ import dht
 dht_pin = Pin(15)
 sensor = dht.DHT11(dht_pin)
 
-while True:
-    try:
-        sensor.measure()
-        temp = sensor.temperature() - 3
-        humidity = sensor.humidity()
-        temp = temp*9/5 + 32
-        print("Temperature: {:.2f}°F".format(temp))
-        print("Humidity: {:.1f}%".format(humidity))
-        
+def fahrenheit():
+    sensor.measure()
+    updated_temp = sensor.temperature() - 3
+    updated_temp = updated_temp * 9/5 + 32
+    return updated_temp
 
-    except RuntimeError as error:
-        print("Error")
-
-    sleep(1)
+def humid():
+    sensor.measure()
+    updated_humidity = sensor.humidity()
+    return updated_humidity

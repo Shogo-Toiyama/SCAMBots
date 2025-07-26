@@ -1,6 +1,8 @@
 from connections import connect_mqtt, connect_internet
 from time import sleep
 import temperature
+import light
+import distance
 
 def main():
     try:
@@ -12,9 +14,13 @@ def main():
             sleep(0.1)
             updated_temp = temperature.fahrenheit()
             updated_humidity = temperature.humid()
+            updated_light = light.lumens()
+            updated_dist = distance.dist()
             print(updated_temp)
-            client.publish('picow/tem', str(updated_temp))
-            client.publish('picow/hum', str(updated_humidity))
+            client.publish('temp', str(updated_temp))
+            client.publish('humidity', str(updated_humidity))
+            client.publish('light', str(updated_light))
+            client.publish('ultrasonic', str(updated_dist))
             sleep(1)
             
 
@@ -24,3 +30,4 @@ def main():
         
 if __name__ == "__main__":
     main()
+
