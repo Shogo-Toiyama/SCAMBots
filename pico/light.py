@@ -5,5 +5,5 @@ adc = ADC(Pin(26))
 
 def lumens():
     adcvalue = adc.read_u16()
-    lumens = (65535 - adcvalue) / 62535
+    lumens = (56000 - adcvalue) / 54000
     return lumens

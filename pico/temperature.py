@@ -7,11 +7,11 @@ sensor = dht.DHT11(dht_pin)
 
 def fahrenheit():
     sensor.measure()
-    updated_temp = sensor.temperature() - 3
+    updated_temp = sensor.temperature() - 1 - 2/3
     updated_temp = updated_temp * 9/5 + 32
     return updated_temp
 
 def humid():
     sensor.measure()
-    updated_humidity = sensor.humidity()
+    updated_humidity = sensor.humidity() + 23
     return updated_humidity
