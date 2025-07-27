@@ -22,7 +22,7 @@ response = client.responses.create(
         {
             "role": "user",
             "content": [
-                { "type": "input_text", "text": "You are an intelligence analyst for a covert operations unit. Examine the image and describe exactly what is visible—nothing more, nothing less. Use concise, tactical language, as if reporting to a field agent during an active mission. Keep it brief, cold, and focused." },
+                { "type": "input_text", "text": "You are an intelligence analyst for a covert operations unit. Examine the image and describe exactly what is visible—nothing more, nothing less. Use concise, tactical language, as if reporting to a field agent during an active mission. Keep it brief, cold, and focused. If there is a recognizable location, describe what it is and where the location of that recognizable location is. If there is a recognizable image or painting, describe what it is and who painted it. If there are multiples of an object, explain if there is a lot." },
                 {
                     "type": "input_image",
                     "image_url": f"data:image/jpeg;base64,{base64_image}",
