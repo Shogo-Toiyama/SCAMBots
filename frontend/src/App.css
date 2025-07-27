@@ -9,4 +9,17 @@ body {
 .website-title {
   font-size: 60px;
   font-weight: bold;
+  margin: 40px;
+}
+
+.agents {
+  font-size: 20px;
+  margin-left: 50px;
+}
+
+.image-and-analysis {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }

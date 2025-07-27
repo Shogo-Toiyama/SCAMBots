@@ -1,3 +1,74 @@
+.api-call-field {
+    margin: 40px;
+    margin-left: 0;
+    display: flex;
+    align-items: center;
+}
+
+.connect-text-and-img {
+  align-items: center;
+  text-align: center;
+}
+
+.connect-text {
+  color: white;
+  text-shadow: 0 0 15px white;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.connect-text.hovered {
+  opacity: 1
+}
+
+.analyze-button {
+    margin-right: 80px;
+}
+
+.glow-wrapper {
+  max-height: 150px;
+  aspect-ratio: auto;
+  object-fit: contain;
+  position: relative;
+  display: inline-block;
+}
+
+.glow-image {
+  max-height: 150px;
+  aspect-ratio: auto;
+  object-fit: contain;
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: blur(8px) brightness(2) drop-shadow(0 0 10px #00ff73);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.glow-wrapper:hover .glow-image {
+  opacity: 1;
+}
+
+.glow-image {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.sp-image {
+  max-height: 150px;
+  aspect-ratio: auto;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+}
+
 .headquarters-text {
     font-size: 30px;
     font-weight: bold;
@@ -5,10 +76,12 @@
     background: linear-gradient(135deg, #00ff73, #00ffaa, #007755);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    margin: 20px;
 }
 
 .response-field {
-    background: linear-gradient(to right, #000000, #203322);
+    background: radial-gradient(circle,#0a2d1f, #0e1714, #000000);
+    border-radius: 20px;
 }
 
 hr {
@@ -22,4 +95,27 @@ hr {
     padding: 20px;
     font-size: 20px;
     line-height: 2;
+    text-shadow: 0 0 10px #ffffff;
+}
+
+.audio-time {
+    margin: 20px;
+    margin-left: auto;
+}
+
+.audio-button {
+  margin: 10px;
+  background-color: #1a1a1a;
+  border: 1px solid #00ff73;
+  color: #00ff73;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.audio-button:hover {
+  background-color: #00ff73;
+  color: #101010;
 }

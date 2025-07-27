@@ -16,15 +16,16 @@ function CommunicationField({}) {
     <div className="communication-fields">
       <p className="gradient-text">Message to the local agent</p>
       <div>
-        <form onSubmit = {handleSubmit}>
-            <input
-              type = "text"
-              value = {message}
-              placeholder="Type your secret message here..."
-              onChange={(e) => setMessage(e.target.value)}
-            />
-          <button type = "submit">Submit</button>
-        </form>
+      <form onSubmit={handleSubmit} className="message-form">
+        <input
+          type="text"
+          value={message}
+          placeholder="Type your secret message here..."
+          onChange={(e) => setMessage(e.target.value)}
+          className="message-input"
+        />
+        <button type="submit" className="message-submit">Submit</button>
+</form>
       </div>
     </div>
     );

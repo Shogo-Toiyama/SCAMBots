@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import RealtimeInfoField from './components/realtime_info_field';
-import picture from './picture1.PNG';
 import './App.css';
 import ApiCallField from "./components/api_call_field";
 import CommunicationField from "./components/communication_field";
@@ -30,10 +29,12 @@ function App() {
   return (
     <div className="app">
       <div className="operator-page">
-        <p className="website-title">SCAMBots Operator Page</p>
+        <p className="website-title">SCAMBots HUB<span className="agents">Shogo Cristian Austin Moises</span></p>
           <RealtimeInfoField/>
-          <SnapshotInfoField/>
-          <ApiCallField/>
+          <div className="image-and-analysis">
+            <SnapshotInfoField/>
+            <ApiCallField/>
+          </div>
           <CommunicationField/>
       </div>
     </div>

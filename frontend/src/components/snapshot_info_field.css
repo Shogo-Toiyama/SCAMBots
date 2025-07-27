@@ -24,6 +24,9 @@
   .image-wrapper {
     display: inline-block;
     position: relative;
+    cursor: pointer;
+    margin: 40px;
+    margin-right: 0;
   }
 
   .snapped-image.darkened {

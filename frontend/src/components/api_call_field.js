@@ -20,6 +20,7 @@ function ApiCallField({}) {
   const [extraText, setExtraText] = useState('');
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     fetch('/openai_response_text.txt')
@@ -35,7 +36,7 @@ function ApiCallField({}) {
         setCurrentTime(audioRef.current.currentTime);
         setDuration(audioRef.current.duration || 0);
       }
-    }, 500);
+    }, 100);
 
     return () => clearInterval(interval);
   }, []);
@@ -66,26 +67,44 @@ function ApiCallField({}) {
   };
 
   return (
-    <div className="api-call-fields">
-      <div>
-        <button onClick = {sendPicture}>Analyze Image</button>
-        <div></div>
-        <div className='response-field'>
+    <div className="api-call-field">
+      <div className="connect-text-and-img">
+        <p className={`connect-text ${isHovered ? "hovered" : ""}`}>CONNECT TO SUPERCOMPUTER</p>
+        <div className='glow-wrapper'>
+          <img src="/connect_to_sp.png" alt="Glow Shadow" className="glow-image" />
+          <img 
+            className={`sp-image ${isHovered ? "hovered" : ""}`}
+            src="/connect_to_sp.png" 
+            alt="Connnect to Supercomputer"
+            onMouseEnter={()=>{
+              setIsHovered(true);
+              console.log("hovered");
+            }}
+            onMouseLeave={()=>{
+              setIsHovered(false);
+              console.log("left");
+            }}
+            onClick={sendPicture}
+          />
+        </div>
+      </div>
+      <div className='response-field'>
+        <div className='header'>
           <p className='headquarters-text'>Headquarters</p>
           <audio ref={audioRef} src="/speech.mp3" />
-          <button onClick = {toggleAudio}>{isPlaying ? "Pause" : "Play"}</button>
-          <button onClick = {resetAudio}>Reset</button>
-          <p>{formatTime(currentTime)}s / {formatTime(duration)}s</p>
-          <hr/>
-          <p className='extra-text'>
-            {extraText.split(/\. (?=[A-Z])/).map((sentence, index) => (
-              <span key={index}>
-                {sentence.trim() + '.'}
-                <br />
-              </span>
-            ))}
-          </p>
+          <button className="audio-button" onClick = {toggleAudio}>{isPlaying ? "Pause" : "Play"}</button>
+          <button className="audio-button" onClick = {resetAudio}>Reset</button>
+          <p className='audio-time'>{formatTime(currentTime)}s / {formatTime(duration)}s</p>
         </div>
+        <hr/>
+        <p className='extra-text'>
+          {extraText.split(/\. (?=[A-Z])/).map((sentence, index) => (
+            <span key={index}>
+              {sentence.trim() + '.'}
+              <br />
+            </span>
+          ))}
+        </p>
       </div>
     </div>
     );

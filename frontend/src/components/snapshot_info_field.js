@@ -3,7 +3,7 @@ import socket from '../socket';
 import picture from '../picture1.PNG';
 import './snapshot_info_field.css';
 
-function SnapshotInfoField({picPath}) {
+function SnapshotInfoField() {
 
   const [snapshotUrl, setSnapshotUrl] = useState(null);
   const [statusMessage, setStatusMessage] = useState("");
@@ -20,7 +20,6 @@ function SnapshotInfoField({picPath}) {
     socket.on('picture_taken', data => {
       setStatusMessage(data.message);
       if (data.imageUrl) {
-        // Evitar caché con timestamp
         const urlWithTimestamp = data.imageUrl + '?t=' + new Date().getTime();
         setSnapshotUrl(urlWithTimestamp);
       }
@@ -42,7 +41,6 @@ function SnapshotInfoField({picPath}) {
 
   return (
     <div>
-      <p>Distance snapshots here.</p>
       <div 
         className="image-wrapper"
         onClick={GetPicture}
