@@ -10,6 +10,10 @@ body {
   font-size: 60px;
   font-weight: bold;
   margin: 40px;
+  display: inline-block;
+  background: linear-gradient(135deg, #00ff73, #00ffaa, #007755);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .agents {

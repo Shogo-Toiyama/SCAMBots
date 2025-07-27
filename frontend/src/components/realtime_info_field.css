@@ -88,3 +88,34 @@ hr {
   margin-bottom: 15px;
   letter-spacing: 5px;
 }
+
+.realtime-info-value.snapped {
+  color: red;
+}
+
+.realtime-info-unit.snapped{
+  color: red;
+}
+
+.realtime-info-label.snapped {
+  color: red;
+}
+
+.snap-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: #1a1a1a;
+  border: 1px solid #00ff73;
+  color: #00ff73;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.snap-button:hover {
+  background-color: #00ff73;
+  color: #101010;
+}
