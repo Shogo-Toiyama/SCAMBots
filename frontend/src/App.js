@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="app">
       <div className="operator-page">
-        <p className="website-title">SCAMBots HUB<span className="agents">Shogo Cristian Austin Moises</span></p>
+        <p className="website-title">SCAMBotsHub<span className="agents">Shogo Cristian Austin Moises</span></p>
           <RealtimeInfoField/>
           <div className="image-and-analysis">
             <SnapshotInfoField/>

@@ -42,15 +42,13 @@ function ApiCallField({}) {
   }, []);
 
   const toggleAudio = () => {
-    if (!audioRef.current) {
-      audioRef.current = new Audio('/speech.mp3');
-    }
+    if (!audioRef.current) return;
 
     if (audioRef.current.paused) {
-      audioRef.current.play().then(() => {
+      audioRef.current.play().then(()=>{
         setIsPlaying(true);
-      }).catch(error => {
-        console.error("Play error:", error);
+      }).catch((error)=>{
+        console.error("Play error: ");
       });
     } else {
       audioRef.current.pause();
@@ -59,11 +57,16 @@ function ApiCallField({}) {
   };
 
   const resetAudio = () => {
+    const newAudio = new Audio(`/speech.mp3?t=${Date.now()}`);
+    newAudio.onloadedmetadata = () => {
+      setDuration(newAudio.duration || 0);
+      setCurrentTime(0);
+      setIsPlaying(false);
+    };
     if (audioRef.current) {
       audioRef.current.pause();
-      audioRef.current.currentTime = 0;
-      setIsPlaying(false);
     }
+    audioRef.current = newAudio;
   };
 
   return (
@@ -91,7 +94,6 @@ function ApiCallField({}) {
       <div className='response-field'>
         <div className='header'>
           <p className='headquarters-text'>Headquarters</p>
-          <audio ref={audioRef} src="/speech.mp3" />
           <button className="audio-button" onClick = {toggleAudio}>{isPlaying ? "Pause" : "Play"}</button>
           <button className="audio-button" onClick = {resetAudio}>Reset</button>
           <p className='audio-time'>{formatTime(currentTime)}s / {formatTime(duration)}s</p>

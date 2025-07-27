@@ -90,15 +90,15 @@ hr {
 }
 
 .realtime-info-value.snapped {
-  color: red;
+  color: yellow;
 }
 
 .realtime-info-unit.snapped{
-  color: red;
+  color: yellow;
 }
 
 .realtime-info-label.snapped {
-  color: red;
+  color: yellow;
 }
 
 .snap-button {
