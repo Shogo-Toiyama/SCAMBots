@@ -1,0 +1,49 @@
+.communication-fields {
+    background-color: #101010;
+    margin: 40px;
+    margin-bottom: 200px;
+    padding: 20px;
+    border-radius: 20px;
+  }
+  
+  .communication-fields input {
+    background-color: #1a1a1a;
+    border: 1px solid #00ff73;
+    color: #00ff73;
+    padding: 10px 15px;
+    margin-right: 10px;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    width: 80%;
+  }
+  
+  .communication-fields input::placeholder {
+    color: #66ffb2;
+  }
+  
+  .communication-fields button {
+    background-color: #1a1a1a;
+    border: 1px solid #00ff73;
+    color: #00ff73;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .communication-fields button:hover {
+    background-color: #00ff73;
+    color: #101010;
+  }
+  
+
+.gradient-text {
+    font-size: 30px;
+    font-weight: bold;
+    display: inline-block;
+    background: linear-gradient(135deg, #00ff73, #00ffaa, #007755);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }

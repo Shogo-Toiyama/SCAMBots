@@ -1,0 +1,121 @@
+.realtime-info-fields {
+  align-items: center;
+  margin: 40px;
+  background-color: #101010;
+  border-radius: 20px;
+}
+
+.realtime-info-header {
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #101010;
+  padding-left: 30px;
+  text-align: left;
+  border-radius: 20px;
+}
+
+.gradient-text {
+  display: inline-block;
+  background: linear-gradient(135deg, #00ff73, #00ffaa, #007755);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.realtime-info-boxes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.realtime-info-box {
+  background: radial-gradient(circle,#0a2d1f, #0e1714, #000000);
+  padding: 20px 30px;
+  text-align: center;
+  border-radius: 20px;
+  position: relative;
+  height: 150px;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right,transparent, #00ff73, transparent);
+  opacity: 0.5;
+}
+
+.realtime-info-box::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(to bottom, #00ff7342, #00ff73, #00ff7342);
+  opacity: 0.5;
+}
+
+.realtime-info-box::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(to right, #00ff7342, #00ff73, #00ff7342);
+  opacity: 0.5;
+}
+
+.realtime-info-boxes:nth-child(2n)::after {
+  display: none;
+}
+
+.realtime-info-boxes :nth-child(n+3)::before {
+  display: none;
+}
+
+.realtime-info-value {
+  font-size: 80px;
+  font-weight: bold;
+}
+
+.realtime-info-unit {
+  font-size: 24px;
+  margin-left: 4px;
+}
+
+.realtime-info-label {
+  font-size: 24px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  letter-spacing: 5px;
+}
+
+.realtime-info-value.snapped {
+  color: red;
+}
+
+.realtime-info-unit.snapped{
+  color: red;
+}
+
+.realtime-info-label.snapped {
+  color: red;
+}
+
+.snap-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: #1a1a1a;
+  border: 1px solid #00ff73;
+  color: #00ff73;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.snap-button:hover {
+  background-color: #00ff73;
+  color: #101010;
+}
