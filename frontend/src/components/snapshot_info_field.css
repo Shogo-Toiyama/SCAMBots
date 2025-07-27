@@ -17,7 +17,7 @@
     margin: 0;
     padding: 0;
     border-width: 1px;
-    height: 500px;
+    max-height: 400px;
     transition: filter 0.3s ease;
   }
   

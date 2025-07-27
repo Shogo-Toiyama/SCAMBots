@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import socket from '../socket';
-import picture from '../picture1.PNG';
 import './snapshot_info_field.css';
 
 function SnapshotInfoField() {
