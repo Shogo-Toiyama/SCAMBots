@@ -12,6 +12,8 @@
   padding-left: 30px;
   text-align: left;
   border-radius: 20px;
+  display: flex;
+  position: relative;
 }
 
 .gradient-text {
@@ -19,6 +21,30 @@
   background: linear-gradient(135deg, #00ff73, #00ffaa, #007755);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.indicator {
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle at center, #888888, #444444, #111111);
+  border-radius: 50%;
+  position: absolute;
+  right: 40px;
+  top: 40px;
+}
+
+.indicator.unknown {
+  background: radial-gradient(circle at center, #888888, #444444, #111111);
+}
+
+.indicator.online {
+  background: radial-gradient(circle at center, #00ff73, #008844, #000000);
+  box-shadow: 0 0 20px 10px rgba(0, 255, 115, 0.5);
+}
+
+.indicator.offline {
+  background: radial-gradient(circle at center, #ff4d4d, #800000, #000000);
+  box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0.5);
 }
 
 .realtime-info-boxes {
