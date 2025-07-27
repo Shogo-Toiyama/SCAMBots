@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import RealtimeInfoField from './components/realtime_info_field';
 import picture from './picture1.PNG';
-import io from 'socket.io-client';
 import './App.css';
 import SnapshotInfoField from "./components/snapshot_info_field";
 import ApiCallField from "./components/api_call_field";
 import CommunicationField from "./components/communication_field";
-
-const socket = io(`http://localhost:8000`);
+import socket from './socket';
 
 function App() {
   const [snapshotUrl, setSnapshotUrl] = useState(null);
