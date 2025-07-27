@@ -15,6 +15,8 @@ function SnapshotInfoField() {
   const distanceTimeDisplay = distanceTime ? distanceTime.toLocaleTimeString() : '--:--:--';
   const pictureTimeDisplay = picTime ? picTime.toLocaleTimeString() : '--:--:--';
 
+  const imagePath = "/downloaded_image.jpg";
+
   useEffect(() => {
     socket.on('picture_taken', data => {
       setStatusMessage(data.message);
@@ -52,7 +54,12 @@ function SnapshotInfoField() {
           console.log("left");
         }}
       >
-        {snapshotUrl ? (
+        <img 
+          className={`snapped-image ${isHovered ? "darkened" : ""}`}
+          src={imagePath}
+          alt="downloaded_image"
+        />
+        {/* {snapshotUrl ? (
           <img
             className={`snapped-image ${isHovered ? "darkened" : ""}`}
             src={snapshotUrl}
@@ -64,7 +71,7 @@ function SnapshotInfoField() {
             src="/scambots_preview.png" 
             alt="Secret Photo"
           />
-        )}
+        )} */}
         <div className={`overlay ${isHovered ? "visible" : ""}`}>
           <p className="overlay-text">REQUEST NEW PICTURE</p>
         </div>

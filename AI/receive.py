@@ -3,7 +3,7 @@ import os
 import sys
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
-filename = os.path.join(script_dir, "../frontend/src/downloaded_image.jpg") 
+filename = os.path.join(script_dir, "../frontend/public/downloaded_image.jpg") 
 
 frontend_dir = os.path.abspath(os.path.join(script_dir, '..', 'frontend'))
 filename = os.path.join(frontend_dir, "downloaded_image.jpg")
