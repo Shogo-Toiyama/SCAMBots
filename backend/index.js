@@ -33,6 +33,60 @@ const client = MQTT.connect(process.env.CONNECT_URL, {
   rejectUnauthorized: false
 });
 
+client.on("error", function (error) {
+  console.error("Connection error: ", error);
+});
+
+client.on("close", function () {
+  console.log("Connection closed");
+});
+
+client.on("offline", function () {
+  console.log("Client went offline");
+});
+
+client.on("reconnect", function () {
+  console.log("Attempting to reconnect...");
+});
+
+// MQTT Connection
+
+client.on('connect', async () => {
+  console.log("Connected");
+
+  client.subscribe("ultrasonic", (err) => {
+    if (err) {
+      console.error("Subscription error for 'ultrasonic': ", err);
+    } else {
+      console.log("Subscribed to 'ultrasonic'");
+    }
+  });
+
+  client.subscribe("temp", (err) => {
+    if (err) {
+      console.error("Subscription error for 'temp': ", err);
+    } else {
+      console.log("Subscribed to 'temp'");
+    }
+  });
+
+  client.subscribe("humidity", (err) => {
+    if (err) {
+      console.error("Subscription error for 'temp': ", err);
+    } else {
+      console.log("Subscribed to 'humidity'");
+    }
+  });
+
+  client.subscribe("light", (err) => {
+    if (err) {
+      console.error("Subscription error for 'light': ", err);
+    } else {
+      console.log("Subscribed to 'light'");
+    }
+  });
+});
+
 // --- Sensor data ---
 let latestTemp = null;
 let latestUltrasonic = null;
@@ -51,10 +105,6 @@ io.on("connection", (socket) => {
     console.log('Received message from frontend:', message);
     client.publish("display", message.toString());
   });
-
-  socket.on('analyze_picture', () => {
-    const pythonProcess = spawn('python', [path.join(__dirname, '..', 'AI', 'send_to_openai.py'), 'update']);
-  })
 
   socket.on('take_picture', () => {
     console.log('📸 Taking picture...');
