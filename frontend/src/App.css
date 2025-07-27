@@ -1,10 +1,12 @@
-.App-picture-bottom {
-  top: 357px;
-  left: 25%;
-  transform: translateX(70px);
-  width: 150px;
-  height: 100px;
-  background: none;
-  border: none;
-  cursor: pointer;
+body {
+  font-family: "Trebuchet MS", "Lucida Console", monospace;
+  letter-spacing: 1px;
+  color: #00ff73;
+  background: linear-gradient(to right, #293929, #191919);
+  letter-spacing: 2px;
+}
+
+.website-title {
+  font-size: 60px;
+  font-weight: bold;
 }

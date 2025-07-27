@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import socket from '../socket';
+import './realtime_info_field.css';
 
 class Sensor {
   constructor(name, unit, pin) {
@@ -38,28 +39,25 @@ function RealtimeInfoField() {
 
   return (
     <div className="realtime-info-fields">
-      {sensors.map(sensor => (
-        <GetRealtimeInfo
-          key={sensor.pin}
-          label={sensor.name}
-          value={
-            sensor.name === "Temperature" ? `${temp ? temp : '--'} ${sensor.unit}` :
-            sensor.name === "Humidity" ? `${humidity ? humidity : '--'} ${sensor.unit}` :
-            sensor.name === "Light Level" ? `${lightlevel ? lightlevel : '--'} ${sensor.unit}` :
-            sensor.name === "Distance" ? `${distance ? distance : '--'} ${sensor.unit}` :
-            "N/A"
-          }
-        />
-      ))}
+      <div className="realtime-info-header">
+        <p className="gradient-text">Sensor Data</p>
+      </div>
+      <hr className="divider"/>
+      <div className="realtime-info-boxes">
+        <CreateRealtimeInfoBox label="TEMPERATURE" value={temp || "--"} unit="F"/>
+        <CreateRealtimeInfoBox label="HUMIDITY" value="53" unit="%"/>
+        <CreateRealtimeInfoBox label="LIGHT LEVEL" value="183" unit="lx"/>
+        <CreateRealtimeInfoBox label="DISTANCE" value="120" unit="cm"/>
+      </div>
     </div>
   );
 }
 
-function GetRealtimeInfo({ label, value }) {
+function CreateRealtimeInfoBox({label, value, unit}) {
   return (
-    <div className="realtime-info-field">
-      <span className="label">{label}: </span>
-      <span className="value">{value}</span>
+    <div className="realtime-info-box">
+      <div className="realtime-info-value">{value}<span className="realtime-info-unit">{unit}</span></div>
+      <div className="realtime-info-label">{label}</div>
     </div>
   );
 }

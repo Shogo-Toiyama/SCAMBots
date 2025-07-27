@@ -1,0 +1,25 @@
+.headquarters-text {
+    font-size: 30px;
+    font-weight: bold;
+    display: inline-block;
+    background: linear-gradient(135deg, #00ff73, #00ffaa, #007755);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.response-field {
+    background: linear-gradient(to right, #000000, #203322);
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right,#00ff73, #134c2d, #00ff73);
+    opacity: 0.5;
+}
+
+.extra-text {
+    padding: 20px;
+    font-size: 20px;
+    line-height: 2;
+}
