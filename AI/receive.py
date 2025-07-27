@@ -10,7 +10,7 @@ filename = os.path.join(frontend_dir, "downloaded_image.jpg")
 
 os.makedirs(frontend_dir, exist_ok=True)
 
-url = "http://192.168.50.180/800x600.jpg"
+url = "http://192.168.50.107/1280x720.jpg"
 
 def download_image():
     response = requests.get(url)

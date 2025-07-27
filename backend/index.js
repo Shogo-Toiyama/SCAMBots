@@ -106,6 +106,10 @@ io.on("connection", (socket) => {
     client.publish("display", message.toString());
   });
 
+  socket.on('analyze_picture', () => {
+    const pythonProcess = spawn('python', [path.join(__dirname, '..', 'AI', 'send_to_openai.py'), 'update']);
+  })
+
   socket.on('take_picture', () => {
     console.log('📸 Taking picture...');
 
