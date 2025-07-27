@@ -22,15 +22,17 @@ function RealtimeInfoField() {
   const [humidity, setHumidity] = useState();
   const [lightlevel, setLightLevel] = useState();
   const [distance, setDistance] = useState();
-  const [isTempSnapped, setIsTempSnapped] = useState();
-  const [isHumiditySnapped, setIsHumiditySnapped] = useState();
-  const [isLightlevelSnapped, setIsLightlevelSnapped] = useState();
-  const [isDistanceSnapped, setIsDIstanceSnapped] = useState();
+  const [isTempSnapped, setIsTempSnapped] = useState(false);
+  const [isHumiditySnapped, setIsHumiditySnapped] = useState(false);
+  const [isLightlevelSnapped, setIsLightlevelSnapped] = useState(false);
+  const [isDistanceSnapped, setIsDIstanceSnapped] = useState(false);
 
   const [snappedTemp, setSnappedTemp] = useState();
   const [snappedHumidity, setSnappedHumidity] = useState();
   const [snappedLightlevel, setSnappedLightlevel] = useState();
   const [snappedDistance, setSnappedDistance] = useState();
+
+  const [mqttStatus, setMqttStatus] = useState("unknown");
 
   useEffect(() => {
     socket.on('connect', () => console.log('Connected:', socket.id));
@@ -38,11 +40,13 @@ function RealtimeInfoField() {
     socket.on('ultrasonic', distance => setDistance(distance));
     socket.on('humidity', humidity => setHumidity(humidity));
     socket.on('light', light => setLightLevel(light));
+    socket.on('mqtt_status', mqtt_status => setMqttStatus(mqtt_status));
     return () => {
       socket.off('temp');
       socket.off('ultrasonic');
       socket.off('humidity');
       socket.off('light');
+      socket.off('mqtt_status');
     };
   }, []);
 
@@ -89,6 +93,7 @@ function RealtimeInfoField() {
     <div className="realtime-info-fields">
       <div className="realtime-info-header">
         <p className="gradient-text">Sensor Data</p>
+        <div className={`indicator ${mqttStatus}`}/>
       </div>
       <hr className="divider"/>
       <div className="realtime-info-boxes">

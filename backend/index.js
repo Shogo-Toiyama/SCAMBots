@@ -43,6 +43,7 @@ client.on("close", function () {
 
 client.on("offline", function () {
   console.log("Client went offline");
+  io.emit('mqtt_status', "offline");
 });
 
 client.on("reconnect", function () {
@@ -53,6 +54,7 @@ client.on("reconnect", function () {
 
 client.on('connect', async () => {
   console.log("Connected");
+  io.emit('mqtt_status', "online");
 
   client.subscribe("ultrasonic", (err) => {
     if (err) {

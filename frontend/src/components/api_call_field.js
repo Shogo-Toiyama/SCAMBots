@@ -93,10 +93,14 @@ function ApiCallField({}) {
       </div>
       <div className='response-field'>
         <div className='header'>
-          <p className='headquarters-text'>Headquarters</p>
-          <button className="audio-button" onClick = {toggleAudio}>{isPlaying ? "Pause" : "Play"}</button>
-          <button className="audio-button" onClick = {resetAudio}>Reset</button>
-          <p className='audio-time'>{formatTime(currentTime)}s / {formatTime(duration)}s</p>
+          <div className='title-and-time'>
+            <p className='headquarters-text'>Headquarters</p>
+            <p className='audio-time'>{formatTime(currentTime)}s / {formatTime(duration)}s</p>
+          </div>
+          <div className='audio-buttons'>
+            <button className="audio-button" onClick = {toggleAudio}>{isPlaying ? "Pause" : "Play"}</button>
+            <button className="audio-button" onClick = {resetAudio}>Reset</button>
+          </div>
         </div>
         <hr/>
         <p className='extra-text'>
