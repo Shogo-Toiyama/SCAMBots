@@ -5,7 +5,7 @@ import sys
 script_dir = os.path.dirname(os.path.abspath(__file__))
 filename = os.path.join(script_dir, "../frontend/public/downloaded_image.jpg") 
 
-frontend_dir = os.path.abspath(os.path.join(script_dir, '..', 'frontend'))
+frontend_dir = os.path.abspath(os.path.join(script_dir, '..', 'frontend', 'public'))
 filename = os.path.join(frontend_dir, "downloaded_image.jpg")
 
 os.makedirs(frontend_dir, exist_ok=True)
